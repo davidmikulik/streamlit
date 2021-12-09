@@ -1,16 +1,16 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-# import sqlite3
-# from sqlite3 import Error
-#mypath = "/mnt/c/projects/AVE/"
-#dbFile = mypath+"ave.db"
+import sqlite3
+from sqlite3 import Error
+mypath = "./"
+dbFile = mypath+"hello.db"
 	
 def readInvoices():
 	connect = sqlite3.connect(dbFile)
 
 	query	= ('''
-		select DISTINCT INVOICE_NUMBER, CAST(PURCHASER_IC AS TEXT) AS PURCHASER_IC, PURCHASER_NAME, PURCHASER_ADDRESS, REALIZED_DATE, FILE_NAME from INVOICE_HEAD_I  order by REALIZED_DATE
+		Select * from Street
 	''')
 	frame = pd.read_sql_query(query, connect)	
 	#connect.close()
@@ -18,4 +18,4 @@ def readInvoices():
 	
 st.title('To je fakt dobrý')
 st.text('This is some text.')
-#st.table(data=readInvoices())
+st.table(data=readInvoices())
