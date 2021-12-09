@@ -16,6 +16,6 @@ def readInvoices():
 	#connect.close()
 	return frame
 	
-st.title('jOJOC')
+st.title('To je fakt dobrý')
 st.text('This is some text.')
 #st.table(data=readInvoices())
